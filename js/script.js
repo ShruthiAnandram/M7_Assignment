@@ -39,12 +39,11 @@ form.addEventListener('submit', (e) => {
     cellEmail.appendChild(document.createTextNode(newEmail));
     cellDept.appendChild(document.createTextNode(newDept));
 
-    // CREATE THE DELETE BUTTON and appending it as child to the last cell is not working...
-    //let deleteBtn = document.createElement('button');
-    //deleteBtn.className = 'btn btn-close red btn-sm float-right delete'; 
-    cellDelete.appendChild(document.createTextNode('X'));
-    // innerHTML also doesn't work
-    // cellDelete.innerHTML= '<input type="button" value="X" style="color:red;"/>';
+    // CREATE THE DELETE BUTTON and appending it as child...
+    let deleteBtn = document.createElement('button');
+    deleteBtn.className = 'btn btn-sm btn-danger delete'; 
+    deleteBtn.appendChild(document.createTextNode('X'));
+    cellDelete.appendChild(deleteBtn);
 
     // RESET THE FORM
     document.querySelector('#id').value = '';
@@ -67,8 +66,8 @@ form.addEventListener('submit', (e) => {
 selectedTable.addEventListener('click', (e)=> {
     //e.target.classList.contains('delete'); 
         if(confirm('Are you sure you want to delete the employee?')) {
-            console.log(e.target.parentElement);
-            selectedTable.deleteRow(e.target.parentElement.rowIndex);
+            //updated this line of code
+            selectedTable.deleteRow(e.target.parentElement.parentElement.rowIndex);
             count-=1;
             document.getElementById('empCount').value = count;
         }

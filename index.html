@@ -26,13 +26,13 @@
                     <h2 class="title mb-4">Add Employee</h2>
                     <form action="" id="addForm">
                         <label for="id">8-Digit Employee ID</label><br>
-                        <input type="text" maxlength="8" required id="id" class="form-control">
+                        <input type="text" maxlength="8" required pattern="^[0-9]*$" id="id" class="form-control">
                         
                         <label for="name">Full Name</label><br>
                         <input type="text" required id="name" class="form-control"><br>
                         
                         <label for="extension">4-Digit Extension</label><br>
-                        <input type="text" maxlength="4" required id="extension" class="form-control"><br>
+                        <input type="text" maxlength="4" required pattern="^[0-9]*$" id="extension" class="form-control"><br>
                 
                         <label for="email">Email</label><br>
                         <input type="email" required id="email" class="form-control"><br>
